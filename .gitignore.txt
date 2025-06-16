@@ -1,0 +1,12 @@
+# Angular
+CRM-FRONTEND/node_modules/
+CRM-FRONTEND/dist/
+CRM-FRONTEND/.angular/
+
+# .NET
+CRM/bin/
+CRM/obj/
+CRM/.vs/
+*.db
+*.user
+*.suo
