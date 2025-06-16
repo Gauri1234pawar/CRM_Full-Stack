@@ -1,0 +1,17 @@
+# Angular
+node_modules/
+dist/
+.angular/
+.env
+
+# .NET
+bin/
+obj/
+.vscode/
+*.user
+*.suo
+*.csproj.user
+
+# System files
+.DS_Store
+Thumbs.db
