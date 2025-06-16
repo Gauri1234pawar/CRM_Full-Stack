@@ -1,0 +1,75 @@
+/* Common table styling */
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+thead {
+  text-align: center;
+  font-weight: bold;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #dee2e6;
+}
+
+h3 {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 600;
+  color: #0d6efd; /* Bootstrap primary */
+}
+
+/* Zebra stripe rows */
+tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+}
+
+/* Dropdown styling inside navbar */
+.dropdown .dropdown-menu {
+  padding: 0;
+  border-radius: 8px;
+  min-width: 160px;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-item {
+  padding: 10px 16px;
+  font-weight: 500;
+  color: #212529;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #e9ecef;
+  color: #0d6efd;
+}
+
+/* Optional: smooth hover effect for dropdown toggle */
+.dropdown-toggle {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.dropdown-toggle:hover {
+  background-color: #f8f9fa;
+  border-color: #dee2e6;
+}

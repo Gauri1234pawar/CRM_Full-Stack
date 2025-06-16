@@ -1,0 +1,79 @@
+<div class="registration-container">
+  <h2>Create New Account</h2>
+
+  <form (ngSubmit)="onRegister()" #registerForm="ngForm" novalidate>
+
+    <!-- Full Name -->
+    <div class="mb-3">
+      <label for="fullName">Full Name</label>
+      <input
+        type="text"
+        id="fullName"
+        name="fullName"
+        class="form-control"
+        [(ngModel)]="user.fullName"
+        required
+        placeholder="Enter your full name" />
+    </div>
+
+    <!-- Username -->
+    <div class="mb-3">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        class="form-control"
+        [(ngModel)]="user.username"
+        required
+        placeholder="Choose a username" />
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="form-control"
+        [(ngModel)]="user.email"
+        required
+        placeholder="Enter your email" />
+    </div>
+
+    <!-- Password -->
+    <div class="mb-3">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-control"
+        [(ngModel)]="user.password"
+        required
+        placeholder="Create a password" />
+    </div>
+
+    <!-- Phone Number -->
+    <div class="mb-3">
+      <label for="phoneNumber">Phone Number</label>
+      <input
+        type="tel"
+        id="phoneNumber"
+        name="phoneNumber"
+        class="form-control"
+        [(ngModel)]="user.phoneNumber"
+        placeholder="Enter phone number" />
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">
+      Register
+    </button>
+
+    <!-- Optional Error Message -->
+    <p *ngIf="errorMessage" class="text-danger mt-2">{{ errorMessage }}</p>
+
+  </form>
+</div>

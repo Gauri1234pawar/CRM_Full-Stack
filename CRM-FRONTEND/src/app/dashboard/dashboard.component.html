@@ -1,0 +1,97 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <span class="logo">EnquirySystem</span>
+
+    <div class="dropdown">
+      <button class="dropbtn">Enquiry ▼</button>
+      <div class="dropdown-content">
+        <a [routerLink]="['/enquiryform']">New Enquiry</a>
+        <a href="javascript:void(0)" (click)="onViewEnquiriesClick()"
+          >View Enquiries</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="dropbtn">Master ▼</button>
+    <div class="dropdown-content">
+      <li>
+        <a class="dropdown-item" routerLink="/master/location">Location</a>
+      </li>
+      <li>
+        <a class="dropdown-item" routerLink="/master/requirement"
+          >Requirement</a
+        >
+      </li>
+      <li><a class="dropdown-item" routerLink="/master/budget">Budget</a></li>
+      <li><a class="dropdown-item" routerLink="/master/builder">Builder</a></li>
+      <li><a class="dropdown-item" routerLink="/master/project">Project</a></li>
+    </div>
+  </div>
+
+  <div class="navbar-right">
+    <div class="navbar-search">
+      <input
+        type="text"
+        [(ngModel)]="searchText"
+        placeholder="Search enquiries..."
+        class="form-control"
+      />
+      <button class="btn btn-primary" (click)="onSearchClick()">Search</button>
+    </div>
+
+ 
+
+    <button class="btn btn-danger logout-btn" (click)="onLogout()">
+      Logout
+    </button>
+  </div>
+</nav>
+
+<!-- Show enquiry list when showEnquiries is true -->
+<div *ngIf="showEnquiries" class="enquiry-list-container" style="padding: 20px">
+  <!-- Total Enquiries Card -->
+  <div class="enquiry-summary-card">
+    <h4>Total Enquiries: {{ enquiries.length }}</h4>
+  </div>
+
+  <h2 class="mb-3">Submitted Enquiries</h2>
+
+  <!-- Enquiry Table -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Preferred Location</th>
+          <th>Requirements</th>
+          <th>Budget</th>
+          <th>Builder</th>
+          <th>Project</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let enquiry of enquiries">
+          <td>{{ enquiry.name }}</td>
+          <td>{{ enquiry.location }}</td>
+          <td>{{ enquiry.preferredLocation }}</td>
+          <td>{{ formatArray(enquiry.requirements) }}</td>
+          <td>{{ formatArray(enquiry.budget) }}</td>
+          <td>{{ enquiry.builder }}</td>
+          <td>{{ enquiry.project }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pdf-button-container">
+      <button
+        class="btn btn-outline-primary"
+        (click)="downloadEnquiriesAsPDF()"
+      >
+        Download PDF
+      </button>
+    </div>
+  </div>
+</div>

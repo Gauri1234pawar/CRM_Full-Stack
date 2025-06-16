@@ -1,0 +1,15 @@
+<h3>Enquiries by Requirement</h3>
+<table class="table table-bordered">
+  <thead class="table-success">
+    <tr>
+      <th>Name</th>
+      <th>Requirements</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of enquiries">
+      <td>{{ e.name }}</td>
+      <td>{{ formatArray(e.requirements) }}</td>
+    </tr>
+  </tbody>
+</table>

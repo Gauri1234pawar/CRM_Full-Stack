@@ -1,0 +1,118 @@
+<h2 class="text-center mb-4">Enquiry Form</h2>
+
+<form (ngSubmit)="onSubmit()" #enquiryForm="ngForm" novalidate>
+
+  <!-- Name -->
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input id="name" name="name" [(ngModel)]="model.name" required class="form-control" placeholder="Enter your name" />
+  </div>
+
+  <!-- Location -->
+  <div class="mb-3">
+    <label for="location" class="form-label">Location</label>
+    <select id="location" name="location" [(ngModel)]="model.location" required class="form-select">
+      <option value="">Select location</option>
+      <option *ngFor="let loc of locations" [value]="loc">{{ loc }}</option>
+    </select>
+  </div>
+
+  <!-- Requirements (Checkboxes in row) -->
+  <div class="mb-3">
+    <label class="form-label">Requirements</label>
+    <div class="checkbox-row">
+      <div class="checkbox-group" *ngFor="let r of reqs">
+        <input
+          type="checkbox"
+          [value]="r"
+          (change)="onRequirementChange($event)"
+          [checked]="model.requirements.includes(r)"
+          id="req-{{r}}"
+          class="form-check-input"
+        />
+        <label [for]="'req-' + r" class="form-check-label">{{ r }}</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Budget (Checkboxes in row) -->
+  <div class="mb-3">
+    <label class="form-label">Budget</label>
+    <div class="checkbox-row">
+      <div class="checkbox-group" *ngFor="let b of budgets">
+        <input
+          type="checkbox"
+          [value]="b"
+          (change)="onBudgetChange($event)"
+          [checked]="model.budget.includes(b)"
+          id="budget-{{b}}"
+          class="form-check-input"
+        />
+        <label [for]="'budget-' + b" class="form-check-label">{{ b }}</label>
+      </div>
+    </div>
+  </div>
+<!-- Preferred Location + Add Button -->
+<!-- Preferred Location -->
+<div class="mb-3">
+  <label for="preferredLocation" class="form-label">Preferred Location</label>
+  <div style="display: flex; gap: 10px;">
+    <input
+      type="text"
+      id="preferredLocation"
+      name="preferredLocation"
+      [(ngModel)]="model.preferredLocation"
+      class="form-control"
+      placeholder="Enter preferred location"
+    />
+    <button type="button" class="btn btn-outline-primary" (click)="addPreferredLocation()">Add</button>
+  </div>
+</div>
+
+
+
+  <!-- Builder -->
+  <div class="mb-3">
+    <label for="builder" class="form-label">Builder</label>
+    <select
+      id="builder"
+      name="builder"
+      [(ngModel)]="model.builder"
+      (change)="onBuilderChange()"
+      class="form-select"
+      required
+    >
+      <option value="">Select builder</option>
+      <option *ngFor="let b of builders" [value]="b">{{ b }}</option>
+    </select>
+  </div>
+
+  <!-- Project -->
+  <div class="mb-3">
+    <label for="project" class="form-label">Project</label>
+    <select
+      id="project"
+      name="project"
+      [(ngModel)]="model.project"
+      [disabled]="projects.length === 0"
+      class="form-select"
+      required
+    >
+      <option value="">Select project</option>
+      <option *ngFor="let p of projects" [value]="p">{{ p }}</option>
+    </select>
+  </div>
+
+<div style="display: flex; justify-content: space-between; gap: 10px; margin-top: 20px;">
+  <button type="button" class="btn btn-secondary" [routerLink]="['/dashboard']">
+    ← Back to Dashboard
+  </button>
+
+  <button type="submit" class="btn btn-success">
+    Submit
+  </button>
+</div>
+
+
+
+</form>

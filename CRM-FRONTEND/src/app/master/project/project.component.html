@@ -1,0 +1,15 @@
+<h3>Enquiries by Project</h3>
+<table class="table table-bordered">
+  <thead class="table-light">
+    <tr>
+      <th>Name</th>
+      <th>Project</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of enquiries">
+      <td>{{ e.name }}</td>
+      <td>{{ e.project }}</td>
+    </tr>
+  </tbody>
+</table>
